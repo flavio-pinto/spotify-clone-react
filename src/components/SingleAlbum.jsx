@@ -1,14 +1,16 @@
+import { Link } from "react-router-dom";
+
 const SingleAlbum = (props) => {
   return(
     <div className="single-album-wrapper">
-      <a href="#test">
-        <img className="img-fluid" src={props.albumData.album.cover_medium} alt={props.albumData.artist.name + " - " + props.albumData.album.title} />
-      </a>
+      <Link to={"/album/" + props.albumData.album.id}>
+        <img className="img-fluid" src={props.albumData.album.cover_medium} alt={'Cover ' + props.albumData.artist.name + " - " + props.albumData.album.title} />
+      </Link>
       <p className="mb-0">
-        <a className="text-white text-decoration-none fw-bold" href="#test">Album: {props.albumData.album.title.length < 16 ? props.albumData.album.title : props.albumData.album.title.substring(0, 16) + "..."}</a>
+        <Link to={"/album/" + props.albumData.album.id} className="text-white text-decoration-none fw-bold" href="#test">Album: {props.albumData.album.title.length < 16 ? props.albumData.album.title : props.albumData.album.title.substring(0, 16) + "..."}</Link>
       </p>
       <p className="mb-0">
-        <a className="text-white text-decoration-none fw-bold" href="#test">Artist: {props.albumData.artist.name}</a>
+        <Link className="text-white text-decoration-none fw-bold" href="#test">Artist: {props.albumData.artist.name}</Link>
       </p>
     </div>
   )

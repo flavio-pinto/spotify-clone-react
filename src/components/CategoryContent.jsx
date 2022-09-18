@@ -38,7 +38,7 @@ const CategoryContent = (props) => {
   }, []);
 
   return (
-    <Container fluid className="text-white mt-4">
+    <Container fluid className="text-white mt-4 category-row">
       <Row>
         <Col lg={12} className="text-start">
           <h2>{props.categoryName}</h2>

@@ -4,6 +4,7 @@ import {
   SET_ALBUM_HIPHOP,
   SET_ALBUMS,
   QUERY_UPDATE,
+  SET_SINGLE_ALBUM,
 } from "../actions";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   hipHop: [],
   searchResults: [],
   searchQuery: "",
+  singleAlbum: null
 };
 
 const searchReducer = (state = initialState, action) => {
@@ -41,6 +43,11 @@ const searchReducer = (state = initialState, action) => {
         ...state,
         searchQuery: action.payload,
       };
+    case SET_SINGLE_ALBUM:
+      return {
+        ...state,
+        singleAlbum: action.payload
+      }
     default:
       return state;
   }

@@ -128,3 +128,15 @@ body {
 .single-album-wrapper a {
   font-size: 12px;
 }
+
+.category-row {
+  margin-bottom: 60px;
+}
+
+.album-details-wrapper {
+  margin-top: 70px;
+}
+
+.album-details-wrapper button {
+  background-color: rgb(60, 211, 60)
+}

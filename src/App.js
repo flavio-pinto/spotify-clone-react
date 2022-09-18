@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import AlbumDetails from "./components/AlbumDetails";
 import HomeContent from "./components/HomeContent";
 import NavbarTop from "./components/NavbarTop";
 import Sidebar from "./components/Sidebar";
@@ -21,6 +22,7 @@ function App() {
                 <NavbarTop />
                 <Routes>
                   <Route path="/" element={<HomeContent />} />
+                  <Route path="/album/:id" element={<AlbumDetails />} />
                 </Routes>
               </Row>
             </Col>
