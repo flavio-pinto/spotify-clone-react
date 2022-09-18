@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AlbumDetails from "./components/AlbumDetails";
+import ArtistDetails from "./components/ArtistDetails";
 import HomeContent from "./components/HomeContent";
 import NavbarTop from "./components/NavbarTop";
 import Sidebar from "./components/Sidebar";
@@ -23,6 +24,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<HomeContent />} />
                   <Route path="/album/:id" element={<AlbumDetails />} />
+                  <Route path="/artist/:id" element={<ArtistDetails />} />
                 </Routes>
               </Row>
             </Col>

@@ -140,3 +140,7 @@ body {
 .album-details-wrapper button {
   background-color: rgb(60, 211, 60)
 }
+
+.single-artist-wrapper button {
+  width: 90px;
+}
