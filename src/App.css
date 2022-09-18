@@ -124,3 +124,7 @@ body {
 .navbar-top a {
   opacity: 0.3;
 }
+
+.single-album-wrapper a {
+  font-size: 12px;
+}

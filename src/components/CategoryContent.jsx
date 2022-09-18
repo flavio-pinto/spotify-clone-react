@@ -2,11 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, Container, Row } from "react-bootstrap";
 import {
-  EMPTY_ROCK_ALBUMS,
-  /* EMPTY_ROCK_ALBUMS,
-  EMPTY_POP_ALBUMS,
-  EMPTY_HIPHOP_ALBUMS,
-  EMPTY_SEARCH_ALBUMS, */
   fetchAlbumsAction,
   
 } from "../redux/actions";
@@ -41,8 +36,6 @@ const CategoryContent = (props) => {
         dispatch(fetchAlbumsAction(props.genre, randomArtists[i]));
       }
     }
-
-    console.log(albums);
   }, []);
 
   return (
@@ -50,10 +43,12 @@ const CategoryContent = (props) => {
       <Row>
         <Col lg={12} className="text-start">
           <h2>{props.categoryName}</h2>
-          {albums && (
+        </Col>
+        <Col lg={10}>
+        {albums && (
             <Row>
               {albums.map((albumData) => (
-                <Col>
+                <Col lg={3}>
                   <SingleAlbum key={albumData.id} albumData={albumData} />
                 </Col>
               ))}
@@ -61,6 +56,7 @@ const CategoryContent = (props) => {
           )}
         </Col>
       </Row>
+      
     </Container>
   );
 };
