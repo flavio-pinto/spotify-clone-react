@@ -6,6 +6,7 @@ import userReducer from "../reducers/userReducer";
 
 const persistConfig = {
   key: "root",
+  blacklist: ['search'],
   storage,
 };
 
