@@ -1,10 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, Container, Row } from "react-bootstrap";
-import {
-  fetchAlbumsAction,
-  
-} from "../redux/actions";
+import { fetchAlbumsAction } from "../redux/actions";
 import SingleAlbum from "./SingleAlbum";
 
 const CategoryContent = (props) => {
@@ -20,20 +17,22 @@ const CategoryContent = (props) => {
   );
 
   useEffect(() => {
-    let randomArtists = [];
-    while (randomArtists.length < 4) {
-      let artist =
-        props.artistsGenre[
-          Math.floor(Math.random() * props.artistsGenre.length)
-        ];
-      if (!randomArtists.includes(artist)) {
-        randomArtists.push(artist);
+    if (props.genre !== "search") {
+      let randomArtists = [];
+      while (randomArtists.length < 4) {
+        let artist =
+          props.artistsGenre[
+            Math.floor(Math.random() * props.artistsGenre.length)
+          ];
+        if (!randomArtists.includes(artist)) {
+          randomArtists.push(artist);
+        }
       }
-    }
 
-    if(!albums.length) {
-      for (let i = 0; i < randomArtists.length; i++) {
-        dispatch(fetchAlbumsAction(props.genre, randomArtists[i]));
+      if (!albums.length) {
+        for (let i = 0; i < randomArtists.length; i++) {
+          dispatch(fetchAlbumsAction(props.genre, randomArtists[i]));
+        }
       }
     }
   }, []);
@@ -45,10 +44,10 @@ const CategoryContent = (props) => {
           <h2>{props.categoryName}</h2>
         </Col>
         <Col lg={10}>
-        {albums && (
+          {albums && (
             <Row>
               {albums.map((albumData) => (
-                <Col lg={3}>
+                <Col lg={3} className={albums.length > 4 && 'mb-4'}>
                   <SingleAlbum key={albumData.id} albumData={albumData} />
                 </Col>
               ))}
@@ -56,7 +55,6 @@ const CategoryContent = (props) => {
           )}
         </Col>
       </Row>
-      
     </Container>
   );
 };

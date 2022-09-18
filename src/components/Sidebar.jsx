@@ -1,7 +1,24 @@
 import { Button, Form, Nav, Navbar } from "react-bootstrap";
 import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAlbumsAction, QUERY_UPDATE } from "../redux/actions";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+  const queryString = useSelector((state) => state.search.searchQuery);
+
+  const handleChange = (e) => {
+    dispatch({
+      type: QUERY_UPDATE,
+      payload: e.target.value
+    })
+  }
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    dispatch(fetchAlbumsAction('none', queryString));
+  };
+
   return (
     <Navbar expand="md" variant="white" className="fixed-left justify-content-between">
       <div className="nav-container">
@@ -20,13 +37,14 @@ const Sidebar = () => {
           <BookFill />
           Your Library
         </Nav.Link>
-        <Form className="d-flex mt-3">
+        <Form className="d-flex mt-3" onSubmit={handleSubmit}>
           <Form.Control
             type="search"
             placeholder="Search"
             aria-label="Search"
+            onChange={handleChange}
           />
-          <Button>GO</Button>
+          <Button type="submit">GO</Button>
         </Form>
       </div>
       <div className="nav-container d-flex flex-column align-self-center w-100">

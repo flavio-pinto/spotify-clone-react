@@ -2,7 +2,8 @@ import {
   SET_ALBUM_ROCK,
   SET_ALBUM_POP,
   SET_ALBUM_HIPHOP,
-  SET_ALBUMS
+  SET_ALBUMS,
+  QUERY_UPDATE,
 } from "../actions";
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   popCulture: [],
   hipHop: [],
   searchResults: [],
+  searchQuery: "",
 };
 
 const searchReducer = (state = initialState, action) => {
@@ -33,6 +35,11 @@ const searchReducer = (state = initialState, action) => {
       return {
         ...state,
         searchResults: action.payload,
+      };
+    case QUERY_UPDATE:
+      return {
+        ...state,
+        searchQuery: action.payload,
       };
     default:
       return state;

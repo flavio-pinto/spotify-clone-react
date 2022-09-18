@@ -2,6 +2,7 @@ export const SET_ALBUM_ROCK = 'SET_ALBUM_ROCK';
 export const SET_ALBUM_POP = 'SET_ALBUM_POP';
 export const SET_ALBUM_HIPHOP = 'SET_ALBUM_HIPHOP';
 export const SET_ALBUMS = 'SET_ALBUMS';
+export const QUERY_UPDATE = 'QUERY_UPDATE';
 
 export const fetchAlbumsAction = (genre, query) => {
   return async(dispatch, getState) => {
