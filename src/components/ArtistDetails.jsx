@@ -13,8 +13,7 @@ const ArtistDetails = () => {
 
   useEffect(() => {
     dispatch(fetchSingleArtistAction(params.id));
-    dispatch(fetchAlbumsAction("none", artist.name));
-    console.log(artist);
+    dispatch(fetchAlbumsAction("none", artist?.name));
   }, []);
 
   return (
@@ -43,7 +42,7 @@ const ArtistDetails = () => {
               {albums && (
                 <Row>
                   {albums.map((album, i) => (
-                    <Col md={3} className="mb-4">
+                    <Col key={i} md={3} className="mb-4">
                       <SingleAlbum key={album.id} albumData={album} />
                     </Col>
                   ))}

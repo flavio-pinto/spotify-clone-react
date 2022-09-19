@@ -46,8 +46,8 @@ const CategoryContent = (props) => {
         <Col lg={10}>
           {albums && (
             <Row>
-              {albums.map((albumData) => (
-                <Col lg={3} className={albums.length > 4 && 'mb-4'}>
+              {albums.map((albumData, i) => (
+                <Col key={i} lg={3} className={albums.length > 4 && 'mb-4'}>
                   <SingleAlbum key={albumData.id} albumData={albumData} />
                 </Col>
               ))}
